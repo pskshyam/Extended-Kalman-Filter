@@ -29,7 +29,7 @@ class FusionEKF {
   /**
    * Kalman Filter update and prediction math lives in here.
    */
-  KalmanFilter ekf_;
+  KalmanFilter kf_;
 
  private:
   // check whether the tracking toolbox was initialized or not (first measurement)
@@ -44,6 +44,10 @@ class FusionEKF {
   Eigen::MatrixXd R_radar_;
   Eigen::MatrixXd H_laser_;
   Eigen::MatrixXd Hj_;
+  
+   //acceleration noise components
+  float noise_ax;
+  float noise_ay;
 };
 
 #endif // FusionEKF_H_
