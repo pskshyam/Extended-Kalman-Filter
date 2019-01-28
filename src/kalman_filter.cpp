@@ -72,6 +72,10 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   z_pred << rho, phi, rho_dot;
   
   VectorXd y = z - z_pred;
+  
+  // Normalize angle component.
+  y[1] = atan2(sin(y[1]),cos(y[1]));
+  
   MatrixXd Ht = H_.transpose();
   MatrixXd S = H_ * P_ * Ht + R_;
   MatrixXd Si = S.inverse();
