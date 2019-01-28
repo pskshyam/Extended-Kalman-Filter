@@ -161,8 +161,4 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     kf_.Update(measurement_pack.raw_measurements_);
 
   }
-  
-  // print the output
-  cout << "x_ = " << kf_.x_ << endl;
-  cout << "P_ = " << kf_.P_ << endl;
 }
